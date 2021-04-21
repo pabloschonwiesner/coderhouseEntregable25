@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lista de productos</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+  <link rel="stylesheet" href="styles.css" type="text/css">
+</head>
+<body>
+  <div class="container">
+    <div class="container session">
+      <div class="row">
+        <div class="col-sm" id="usuario">
+          Bienvenido
+        </div>
+        <div class="col-sm">
+          <a href="http://localhost:8080/api/cerrarSesion" class="cerrarSession">Cerrar sesión</a>
+        </div>
+      </div>
+    </div>
+
+
+    <h1>Ingrese producto</h1>
+
+    <form  id="form">
+      <div class="mb-3">
+        <label for="title" class="form-label">Titulo</label>
+        <input type="text" name="title" class="form-control" id="title" value="">
+      </div>
+      <div class="mb-3">
+        <label for="price" class="form-label">Precio</label>
+        <input type="number" class="form-control" name="price" id="price" min="0" step="0.01" value="">
+      </div>
+      <div class="mb-3">
+        <label for="thumbnail" class="form-label">Imagen</label>
+        <select name="thumbnail" id="thumbnail" class="form-select" value="">
+            <option selected>Seleccionar una imagen</option>
+              <option value="https://cdn3.iconfinder.com/data/icons/education-209/64/calculator-math-tool-school-512.png">Calculadora</option>
+              <option value="https://cdn3.iconfinder.com/data/icons/education-209/64/paint-color-pallete-brush-academy-512.png">Paleta colores</option>
+              <option value="https://cdn3.iconfinder.com/data/icons/education-209/64/globe-earth-geograhy-planet-school-512.png">Globo terráqueo</option>
+              <option value="https://cdn3.iconfinder.com/data/icons/education-209/64/clock-stopwatch-timer-time-512.png">Reloj</option>
+              <option value="https://cdn3.iconfinder.com/data/icons/education-209/64/board-math-class-school-512.png">Pizarrón</option>
+              <option value="https://cdn3.iconfinder.com/data/icons/education-209/64/book-note-paper-school-512.png">Cuaderno</option>
+              <option value="https://cdn3.iconfinder.com/data/icons/education-209/64/tube-lab-science-school-512.png">Tubo ensayo</option>
+              <option value="https://cdn3.iconfinder.com/data/icons/education-209/64/graduation-square-academic-cap-school-512.png">Sombrero egresado</option>
+              <option value="https://cdn3.iconfinder.com/data/icons/education-209/64/bag-pack-container-school-512.png">Mochila</option>
+        </select>
+      </div>
+      <button type="submit" class="btn btn-primary" >Enviar</button>
+    </form>
+
+    <table>
+      <thead>
+        <th>Nombre</th>
+        <th>Precio</th>
+        <th>Foto</th>
+      </thead>
+      <tbody></tbody>
+    </table>
+
+    <div id="centroMensajes">
+      <h1>Centro de mensajes</h1>
+
+      <form id="chat">
+        <input type="text" class="email" id="email" placeholder="email@email.com">
+        <input type="text" class="nombre" id="nombre" placeholder="Luis">
+        <input type="text" class="apellido" id="apellido" placeholder="Lopez">
+        <input type="number" class="edad" id="edad" placeholder="28">
+        <input type="text" class="alias" id="alias" placeholder="Lucho">
+        <label for="thumbnail" class="form-label">Avatar</label>
+        <select name="avatar" id="avatar" class="form-select" value="">
+            <option selected>Seleccionar un avatar</option>
+              <option value="https://cdn3.iconfinder.com/data/icons/education-209/64/calculator-math-tool-school-512.png">Calculadora</option>
+              <option value="https://cdn3.iconfinder.com/data/icons/education-209/64/paint-color-pallete-brush-academy-512.png">Paleta colores</option>
+              <option value="https://cdn3.iconfinder.com/data/icons/education-209/64/globe-earth-geograhy-planet-school-512.png">Globo terráqueo</option>
+              <option value="https://cdn3.iconfinder.com/data/icons/education-209/64/clock-stopwatch-timer-time-512.png">Reloj</option>
+        </select>
+        <ul id="lista"></ul>
+        <input type="text" class="message" id="message" placeholder="Ingrese un mensaje">
+        <button id="enviarMensaje" class="btn btn-primary" disabled="true">Enviar</button>
+      </form>
+    </div>
+
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.6/handlebars.min.js"></script>
+  <script src="socket.io/socket.io.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

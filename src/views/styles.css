@@ -1,0 +1,19 @@
+.selector-for-some-widget {
+  box-sizing: content-box;
+}
+
+body { background-color: #eee;}
+.container { border: 2px; margin-top: 30px;}
+h1 { color: #6610f2}
+table { background-color: #333; margin-top: 40px;}
+table { color: white}
+tr { border-bottom: 1px solid #555; }
+td, th { width: 150px; padding: 5px 0 5px 10px}
+#centroMensajes { margin-top: 40px;}
+#chat { display: flex; flex-direction: column; width: 450px; margin-bottom: 100px;}
+#enviarMensaje { margin-top: 20px}
+li { list-style: none; font-size: 0.7rem;}
+.emailStyle { font-weight: bold; color: blue; margin-right: 15px; }
+.fechaHoraStyle { color: brown; margin-right: 15px; }
+.mensajeStyle { color: green; font-style: italic;}
+.session { background-color:#cff4fc; color: black; font-size: 24px; padding: 20px}
