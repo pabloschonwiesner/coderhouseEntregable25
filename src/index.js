@@ -1,5 +1,7 @@
 const express = require('express')
 const session = require('express-session')
+const RedisStore = require('connect-redis')(session)
+const redis = require('redis')
 const dotenv = require('dotenv')
 const routes =  require('./routes/index') 
 const ProductoBD = require('./ProductoBD')
@@ -8,6 +10,7 @@ const path = require('path')
 
 const mongoose = require('mongoose') 
 
+const redisClient = redis.createClient()
 
 exports.producto = new ProductoBD()
 exports.mensaje = new MensajeBD()
@@ -24,6 +27,12 @@ app.use(session({
   resave: false,
   saveUninitialized: true,
   rolling: true,
+  store: new RedisStore({
+    host: 'localhost',
+    port: 6379,
+    client: redisClient,
+    ttl: 10
+  }),
   cookie: {
     secure: false,
     expires: new Date(Date.now() + minuto),
